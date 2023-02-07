@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Copy/paste this job script into a text file and submit with the command:
+#    sbatch thefilename
+
+#SBATCH --time=12:15:00   # walltime limit (HH:MM:SS)
+#SBATCH --nodes=1   # number of nodes
+#SBATCH --ntasks-per-node=36   # 36 processor core(s) per node 
+#SBATCH --job-name="opn5_samtoolsRun1"
+#SBATCH --mail-user=shazid@iastate.edu   # email address
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH --mail-type=FAIL
+#SBATCH --output="opn5_samtoolsRun1.output" # job standard output file (%j replaced by job id)
+#SBATCH --error="opn5_samtoolsRun1.error" # job standard error file (%j replaced by job id)
+
+# LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
+
+
+module load ml samtools
+
+
+#Pmax_opn5_samtools_run1
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Airr_assembly.fasta tig00012622_pilon_pilon:943655-955710 > Airr_Pmax-opn5.samtools.fasta
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Ajap_assembly.fasta Chr10:19265603-19279823 > Ajap_Pmax-opn5.samtools.fasta
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Aple_assembly.fasta Chr10:19861250-19871625 > Aple_Pmax-opn5.samtools.fasta
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Apur_assembly.fasta ctg003060:1365500-1376573 > Apur_Pmax-opn5.samtools.fasta
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Cfar_assembly.fasta Chr10:25185748-25197656 > Cfar_Pmax-opn5.samtools.fasta
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Mvar_assembly.fasta OX392532.1:29017507-29029678 > Mvar_Pmax-opn5.samtools.fasta
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Pmag_assembly.fasta HiC_scaffold_1314:501-13885 > Pmag_Pmax-opn5.samtools.fasta
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Pmax_assembly.fasta Chr10:12572352-12583039 > Pmax_Pmax-opn5.samtools.fasta
+samtools faidx /work/LAS/serb-lab/genomeDB/scallop/Pyes_assembly.fasta Chr10:24114852-24129138 > Pyes_Pmax-opn5.samtools.fasta
+
+
+mv Airr_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
+mv Ajap_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
+mv Aple_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
+mv Apur_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
+mv Cfar_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
+mv Mvar_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
+mv Pmag_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
+mv Pmax_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
+mv Pyes_Pmax-opn5.samtools.fasta /work/LAS/serb-lab/shazid/scallopTestStudy/Pmax_opn5/Pmax_opn5_samtools
